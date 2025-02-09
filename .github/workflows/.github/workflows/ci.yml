@@ -1,0 +1,68 @@
+name: CI/CD Pipeline - Volunteer Matchmaking Website
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: Run Tests on Multiple OS
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Set Up Environment Variables
+        run: |
+          echo "MONGO_URI=mongodb://localhost:27017/volunteerdb" >> $GITHUB_ENV
+          echo "PORT=3000" >> $GITHUB_ENV
+
+      - name: Run Tests
+        run: npm test
+
+      - name: Lint Code
+        run: npm run lint
+
+      - name: Build the Application
+        run: npm run build
+
+  deploy:
+    name: Deploy to Heroku
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Deploy to Heroku
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+        run: |
+          git remote add heroku https://git.heroku.com/$HEROKU_APP_NAME.git
+          git push heroku main
