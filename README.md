@@ -29,7 +29,7 @@ The purpose of **Volunteer Match** is to bridge the gap between individuals will
 ## **Setup Instructions**  
 1. **Clone the Repository**  
    ```sh
-   git clone https://github.com/your-username/volunteer-match.git
+   git clone https://github.com/YeagerSama/Volunteer-matchmaking-website.git
    cd volunteer-match
    ```
 
