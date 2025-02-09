@@ -1,9 +1,6 @@
-# Volunteer-matchmaking-website
+## **Volunteer-matchmaking-website**
 A platform that connects volunteers with organizations based on skills, interests, and availability.
-
-## **Volunteer Match**  
-A platform that connects volunteers with organizations in need.  
-
+  
 ### **Project Goals**  
 The purpose of **Volunteer Match** is to bridge the gap between individuals willing to volunteer and organizations seeking help. The platform enables volunteers to create profiles highlighting their skills and availability while allowing organizations to post opportunities and efficiently match with the right candidates.  
 
