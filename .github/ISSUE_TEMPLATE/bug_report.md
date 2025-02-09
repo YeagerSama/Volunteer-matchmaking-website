@@ -1,7 +1,7 @@
 ---
-name: Bug Report - Password Reset Not Working
-about: Users are unable to reset their password through the Forgot Password feature
-title: "[Bug]: Password Reset Not Working"
+Name: Bug Report - Password Reset Not Working
+About: Users are unable to reset their password through the Forgot Password feature
+Title: "[Bug]: Password Reset Not Working"
 labels: bug, high-priority
 assignees: ''
 
