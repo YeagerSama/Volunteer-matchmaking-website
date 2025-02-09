@@ -30,7 +30,7 @@ The purpose of **Volunteer Match** is to bridge the gap between individuals will
 1. **Clone the Repository**  
    ```sh
    git clone https://github.com/YeagerSama/Volunteer-matchmaking-website.git
-   cd volunteer-match
+   cd volunteer-matchmaking-website
    ```
 
 2. **Install Dependencies**  
